@@ -28,6 +28,10 @@ export default class App extends React.Component {
           mode={`automatic`}
           timeout={`3000`}
         />
+
+        <div>
+          Made by <a href="https://about.phamvanlam.com/">Lam Pham</a>. 
+          Visit me at <a href="https://completejavascript.com/">completejavascript.com</a>.</div>
       </div>
     );
   }
