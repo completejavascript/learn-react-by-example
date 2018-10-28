@@ -52,9 +52,7 @@ export default class Slideshow extends React.Component {
   }
 
   updateDimensions() {
-    const root = ReactDOM.findDOMNode(this);
-    const container = root.querySelector(".container");
-    container.style.height = `${container.offsetWidth / this.ratioWH}px`;
+    this.containerElm.style.height = `${this.containerElm.offsetWidth / this.ratioWH}px`;
   }
 
   runAutomatic() {
@@ -64,6 +62,9 @@ export default class Slideshow extends React.Component {
   }
 
   componentDidMount() {
+    this.rootElm = ReactDOM.findDOMNode(this);
+    this.containerElm = this.rootElm.querySelector(".container");
+
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
 
@@ -79,7 +80,7 @@ export default class Slideshow extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions);
-    clearInterval(this.automaticInterval);
+    if (this.automaticInterval) clearInterval(this.automaticInterval);
   }
 
   render() {
