@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './slideshow.css';
+import './slideshow-gallery.css';
 
-export default class Slideshow extends React.Component {
+export default class SlideshowGallery extends React.Component {
   constructor(props) {
     super(props);
 
@@ -53,6 +53,7 @@ export default class Slideshow extends React.Component {
 
   updateDimensions() {
     this.containerElm.style.height = `${this.containerElm.offsetWidth / this.ratioWH}px`;
+    this.containerBottomElm.style.height = `${this.containerBottomElm.offsetWidth / this.props.input.length / this.ratioWH}px`;
   }
 
   runAutomatic() {
@@ -64,6 +65,7 @@ export default class Slideshow extends React.Component {
   componentDidMount() {
     this.rootElm = ReactDOM.findDOMNode(this);
     this.containerElm = this.rootElm.querySelector(".container");
+    this.containerBottomElm = this.rootElm.querySelector(".container-bottom");
 
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
@@ -85,7 +87,7 @@ export default class Slideshow extends React.Component {
 
   render() {
     return (
-      <div className="lp-slideshow">
+      <div className="lp-slideshow-gallery">
         <div className="container">
           {
             this.props.input.map((image, index) => {
@@ -106,16 +108,21 @@ export default class Slideshow extends React.Component {
           <span className="next" onClick={this.forward}>&#10095;</span>
         </div>
 
-        <div className="dot-container">
+        <div className="container-bottom">
           {
-            this.props.input.map((_, index) => {
+            this.props.input.map((image, index) => {
               return (
-                <span
+                <img
                   key={index}
-                  className={`dot ${this.state.slideIndex === index ? "active" : ""}`}
+                  src={image.src} 
+                  alt={image.caption}
+                  className={`image ${this.state.slideIndex === index ? "active" : ""}`}
                   onClick={() => this.setSlideIndex(index)}
-                >
-                </span>
+                  style={{
+                    width: `${1 / this.props.input.length * 100}%`,
+                    height: `100%`
+                  }}
+                />
               )
             })
           }
