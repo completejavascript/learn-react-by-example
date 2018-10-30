@@ -1,59 +1,40 @@
-* {
+.lp-tooltip,
+.lp-tooltip * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .lp-tooltip {
+  /* Giá trị default sử dụng khi người dùng không truyền thuộc tính vào Tooltip */
+  --border-bottom-style-default: 1px dotted #aaa;
+  --tooltip-width-default: 200px;
+  --tooltip-background-color-default: rgba(0, 0, 0, 0.7);
+  --tooltip-color-default: #fff;
+
+  /* Giá trị sử dụng để set style cho tooltip */
+  --border-bottom-style: var(--border-bottom-style-default);
+  --tooltip-width: var(--tooltip-width-default);
+  --tooltip-background-color: var(--tooltip-background-color-default);
+  --tooltip-color: var(--tooltip-color-default);
+
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted #aaa;
+  border-bottom: var(--border-bottom-style, --border-bottom-style-default);
 }
 
-/* Tooltip on top */
-.lp-tooltip>.tooltip>.tooltip-text.top {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  -webkit-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
-}
+/* Tooltip Common */
 
-.lp-tooltip>.tooltip>.tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Tooltip on right */
 .lp-tooltip>.tooltip>.tooltip-text {
   visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
+  width: var(--tooltip-width, --tooltip-width-default);
+  background-color: var(--tooltip-background-color, --tooltip-background-color-default);
+  color: var(--tooltip-color, --tooltip-color-default);
   text-align: center;
-  padding: 5px 0;
+  padding: 5px;
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  bottom: 50%;
-  left: 125%;
-  margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s ease;
   -webkit-transition: opacity 0.3s ease;
@@ -64,15 +45,72 @@
 .lp-tooltip>.tooltip>.tooltip-text::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
 }
 
 .lp-tooltip>.tooltip:hover>.tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* Tooltip on top */
+
+.lp-tooltip>.tooltip>.tooltip-text.top {
+  bottom: 100%;
+  left: 50%;
+  margin-left: calc(-1 * var(--tooltip-width, --tooltip-width-default) / 2);
+}
+
+.lp-tooltip>.tooltip>.tooltip-text.top::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: var(--tooltip-background-color, --tooltip-background-color-default) transparent transparent transparent;
+}
+
+/* Tooltip on right */
+
+.lp-tooltip>.tooltip>.tooltip-text.right {
+  left: calc(100% + 5px);
+  top: 50%;
+  transform:translatey(-50%);
+  margin-left: 5px;
+}
+
+.lp-tooltip>.tooltip>.tooltip-text.right::after {
+  right: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-color: transparent var(--tooltip-background-color, --tooltip-background-color-default)  transparent transparent;
+}
+
+/* Tooltip on bottom */
+
+.lp-tooltip>.tooltip>.tooltip-text.bottom {
+  top: 100%;
+  left: 50%;
+  margin-left: calc(-1 * var(--tooltip-width, --tooltip-width-default) / 2);
+}
+
+.lp-tooltip>.tooltip>.tooltip-text.bottom::after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: transparent transparent var(--tooltip-background-color, --tooltip-background-color-default) transparent;
+}
+/* Tooltip on left */
+
+.lp-tooltip>.tooltip>.tooltip-text.left {
+  right: calc(100% + 5px);
+  top: 50%;
+  transform:translatey(-50%);
+  margin-left: 5px;
+}
+
+.lp-tooltip>.tooltip>.tooltip-text.left::after {
+  left: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-color: transparent transparent transparent var(--tooltip-background-color, --tooltip-background-color-default);
 }

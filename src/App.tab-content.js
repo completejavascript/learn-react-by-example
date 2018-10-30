@@ -77,14 +77,14 @@ export default class App extends React.Component {
 
         <TabContent input={contents} />
 
-        {/*
+        
         <div>
           <p>
             Made by <a href="https://about.phamvanlam.com/">Lam Pham</a>.
             Visit me at <a href="https://completejavascript.com/">completejavascript.com</a>.
           </p>
         </div>
-        */}
+       
       </div>
     );
   }

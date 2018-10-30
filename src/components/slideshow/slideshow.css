@@ -1,5 +1,8 @@
-* {
-  box-sizing: border-box
+.lp-slideshow,
+.lp-slideshow * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .lp-slideshow {
@@ -113,6 +116,7 @@
 .lp-slideshow>.dot-container>.dot:hover {
   background-color: #717171;
 }
-.lp-slideshow>.dot-container>.dot:not(.active):hover{
+
+.lp-slideshow>.dot-container>.dot:not(.active):hover {
   cursor: pointer;
 }

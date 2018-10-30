@@ -1,5 +1,8 @@
-* {
-  box-sizing: border-box
+.lp-modal-image,
+.lp-modal-image * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .lp-modal-image {

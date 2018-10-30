@@ -1,0 +1,65 @@
+.lp-collapsible-content,
+.lp-collapsible-content * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.lp-collapsible-content {
+  width: 100%;
+}
+
+/* Style the buttons that are used to open and close the content */
+
+.lp-collapsible-content>.title {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: background-color 0.4s ease;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+}
+
+/* Add a background color to the button 
+* if it is clicked on (add the .active class with JS), 
+* and when you move the mouse over it (hover) 
+*/
+
+.lp-collapsible-content>.title.active,
+.lp-collapsible-content>.title:hover {
+  background-color: #ccc;
+}
+
+/* Style the content. Note: hidden by default */
+
+.lp-collapsible-content>.content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  -webkit-transition: max-height 0.2s ease-out;
+  -moz-transition: max-height 0.2s ease-out;
+  -o-transition: max-height 0.2s ease-out;
+}
+
+.lp-collapsible-content>.title:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+
+.lp-collapsible-content>.title.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */
+}

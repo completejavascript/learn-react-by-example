@@ -1,0 +1,10 @@
+.lp-countdown-timer,
+.lp-countdown-timer * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.lp-countdown-timer {
+  display: inline-block;
+}
