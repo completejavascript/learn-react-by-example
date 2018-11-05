@@ -42,14 +42,14 @@
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 992px;
+  max-width: 780px;
 }
 
 .lp-modal-image>.modal>.caption {
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 992px;
+  max-width: 780px;
   text-align: center;
   color: #ccc;
   padding: 10px 0;
@@ -91,7 +91,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 780px) {
   .lp-modal-image>.modal>.modal-content {
     width: 100%;
   }
