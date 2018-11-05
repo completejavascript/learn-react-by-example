@@ -31,7 +31,7 @@ export default class CountdownTimer extends React.Component {
     // Nếu distance < 0 => việc đếm kết thúc
     // Lúc này cần huỷ interval đã cài đặt và set text là EXPIRED
     if (distance < 0) {
-      clearInterval(this.counterTnterval);
+      clearInterval(this.counterInterval);
       this.contentElm.innerText = "EXPIRED";
     }
   }
