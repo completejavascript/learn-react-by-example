@@ -14,8 +14,7 @@ export default class App extends React.Component {
 
         <div 
           style={{
-            display: `flex`,
-            display: `-webkit-flex`
+            display: `flex`
           }}
         >
           <ModalImage
