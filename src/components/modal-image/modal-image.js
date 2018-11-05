@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './modal-image.css';
 
-export default class Slideshow extends React.Component {
+export default class ModalImage extends React.Component {
   constructor(props) {
     super(props);
     
