@@ -9,6 +9,8 @@ import LightBoxApp from './App.lightbox';
 
 export default class App extends React.Component {
   render() {
+    console.log(process.env.PUBLIC_URL);
+    
     return (
       <BrowserRouter className="App" basename={process.env.PUBLIC_URL}>
         <div>
