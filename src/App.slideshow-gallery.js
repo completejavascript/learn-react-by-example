@@ -22,6 +22,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h2>Slideshow Gallery</h2>
+        
         <SlideshowGallery
           input={collection}  
           ratio={`3:2`}

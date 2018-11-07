@@ -18,10 +18,12 @@ const collection = [
   { src: img6, caption: "Caption six" },
 ];
 
-export default class App extends React.Component {
+export default class SlideshowApp extends React.Component {
   render() {
     return (
       <div className="App">
+        <h2>Slideshow</h2>
+
         <Slideshow 
           input={collection}  
           ratio={`3:2`}

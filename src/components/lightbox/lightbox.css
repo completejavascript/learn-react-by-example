@@ -73,10 +73,10 @@
 .lp-lightbox>.modal>.modal-content {
   margin: auto;
   width: 80%;
-  max-width: 780px;
+  max-width: 600px;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 600px) {
   .lp-lightbox>.modal>.modal-content {
     width: 100%;
   }

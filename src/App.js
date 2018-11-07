@@ -1,39 +1,23 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import ModalImage from './components/modal-image/modal-image';
-import img8 from './images/08.jpg';
-import img9 from './images/09.jpg';
+import SlideshowApp from './App.slideshow';
+import SlideshowGalleryApp from './App.slideshow-gallery';
+import ModalImageApp from './App.modal-image';
+import LightBoxApp from './App.lightbox';
 
 export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <h2>Image Modal</h2>
-        <p>Click the image below to show the modal.</p>
-
-        <div 
-          style={{
-            display: `flex`
-          }}
-        >
-          <ModalImage
-            src={img8}
-            alt={`This is one of beautiful girls`}
-            ratio={`3:2`}
-          />
-          <ModalImage
-            src={img9}
-            alt={`This is also one of beautiful girls`}
-            ratio={`3:2`}
-          />
-        </div>
-
+      <Router className="App">
         <div>
-          Made by <a href="https://about.phamvanlam.com/">Lam Pham</a>.
-          Visit me at <a href="https://completejavascript.com/">completejavascript.com</a>.
+          <Route exact path="/slideshow/" component={SlideshowApp} />
+          <Route exact path="/slideshow-gallery/" component={SlideshowGalleryApp} />
+          <Route exact path="/modal-image/" component={ModalImageApp} />
+          <Route exact path="/lightbox/" component={LightBoxApp} />
         </div>
-      </div>
+      </Router>
     );
   }
 }
