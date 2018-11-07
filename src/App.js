@@ -12,10 +12,10 @@ export default class App extends React.Component {
     return (
       <Router className="App">
         <div>
-          <Route exact path="/slideshow/" component={SlideshowApp} />
-          <Route exact path="/slideshow-gallery/" component={SlideshowGalleryApp} />
-          <Route exact path="/modal-image/" component={ModalImageApp} />
-          <Route exact path="/lightbox/" component={LightBoxApp} />
+          <Route exact path={`${process.env.PUBLIC_URL}/slideshow/`} component={SlideshowApp} />
+          <Route exact path={`${process.env.PUBLIC_URL}/slideshow-gallery/`} component={SlideshowGalleryApp} />
+          <Route exact path={`${process.env.PUBLIC_URL}/modal-image/`} component={ModalImageApp} />
+          <Route exact path={`${process.env.PUBLIC_URL}/lightbox/`} component={LightBoxApp} />
         </div>
       </Router>
     );
