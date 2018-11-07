@@ -12,14 +12,7 @@ export default class App extends React.Component {
     console.log("basename", process.env.PUBLIC_URL);
     
     return (
-      <BrowserRouter className="App" basename={process.env.PUBLIC_URL}>
-        <div>
-          <Route exact path="/slideshow/" component={SlideshowApp} />
-          <Route exact path="/slideshow-gallery/" component={SlideshowGalleryApp} />
-          <Route exact path="/modal-image/" component={ModalImageApp} />
-          <Route exact path="/lightbox/" component={LightBoxApp} />
-        </div>
-      </BrowserRouter>
+      <div>Test</div>
     );
   }
 }
