@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/learn-react-by-example/static/media/04.d66c4395.jpg"
   },
   {
-    "revision": "93330c37fd6c93852ad2",
+    "revision": "855fdcfa728bff407fe6",
     "url": "/learn-react-by-example/static/css/main.0cb03cd2.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/learn-react-by-example/static/media/03.cf95d594.jpg"
   },
   {
-    "revision": "93330c37fd6c93852ad2",
-    "url": "/learn-react-by-example/static/js/main.93330c37.chunk.js"
+    "revision": "855fdcfa728bff407fe6",
+    "url": "/learn-react-by-example/static/js/main.855fdcfa.chunk.js"
   },
   {
     "revision": "0d563a91e2b95e8c7087bc3996950c5a",
@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/learn-react-by-example/static/media/10.9a4234ad.jpg"
   },
   {
-    "revision": "1eede26e4d9e4bb72f14187836257424",
+    "revision": "2a20ebbedf4390e8a497f8d362a812e2",
     "url": "/learn-react-by-example/index.html"
   }
 ];

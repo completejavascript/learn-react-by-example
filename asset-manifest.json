@@ -1,7 +1,7 @@
 {
   "main.css": "/learn-react-by-example/static/css/main.0cb03cd2.chunk.css",
-  "main.js": "/learn-react-by-example/static/js/main.93330c37.chunk.js",
-  "main.js.map": "/learn-react-by-example/static/js/main.93330c37.chunk.js.map",
+  "main.js": "/learn-react-by-example/static/js/main.855fdcfa.chunk.js",
+  "main.js.map": "/learn-react-by-example/static/js/main.855fdcfa.chunk.js.map",
   "static/js/1.b7841143.chunk.js": "/learn-react-by-example/static/js/1.b7841143.chunk.js",
   "static/js/1.b7841143.chunk.js.map": "/learn-react-by-example/static/js/1.b7841143.chunk.js.map",
   "runtime~main.js": "/learn-react-by-example/static/js/runtime~main.cd74fda8.js",
@@ -17,6 +17,6 @@
   "static/media/02.jpg": "/learn-react-by-example/static/media/02.b25a2ec0.jpg",
   "static/css/main.0cb03cd2.chunk.css.map": "/learn-react-by-example/static/css/main.0cb03cd2.chunk.css.map",
   "index.html": "/learn-react-by-example/index.html",
-  "precache-manifest.22e77c81da475ef718b6cd928d82d8ea.js": "/learn-react-by-example/precache-manifest.22e77c81da475ef718b6cd928d82d8ea.js",
+  "precache-manifest.afc2384273fee40d8ccd5e1b57b23f28.js": "/learn-react-by-example/precache-manifest.afc2384273fee40d8ccd5e1b57b23f28.js",
   "service-worker.js": "/learn-react-by-example/service-worker.js"
 }
