@@ -17,7 +17,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h2>LightBox</h2>
-        <p>Click on each image below to show the modal.</p>
+        <p>Click on each image below to show the Slideshow Gallery.</p>
 
         <LightBox 
           input={collection}  
