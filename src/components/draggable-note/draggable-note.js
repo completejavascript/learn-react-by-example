@@ -35,6 +35,24 @@ export default class DraggableNote extends React.Component {
     this.resizeMouseDown = this.resizeMouseDown.bind(this);
     this.contentResize = this.contentResize.bind(this);
     this.closeResizeContent = this.closeResizeContent.bind(this);
+    this.contentChange = this.contentChange.bind(this);
+    this.updateContentSize = this.updateContentSize.bind(this);
+  }
+
+  /**
+   * Tính lại chiều rộng, cao cho vùng content,
+   * chiều rộng của content luôn = 100% giá trị của root
+   */
+  updateContentSize() {
+    this.content.style.width = `${this.root.offsetWidth}px`;
+    this.content.style.height = `${this.root.offsetHeight - this.header.offsetHeight}px`;
+  }
+
+  /**
+   * Cập nhật khi component update
+   */
+  componentDidUpdate() {
+    this.updateContentSize();
   }
 
   /**
@@ -47,13 +65,11 @@ export default class DraggableNote extends React.Component {
     // Lấy ra DOM node của content - vùng chứa nội dung
     this.content = this.root.querySelector(".content");
 
-    // Lấy ra DOM node của header - vùng cho phép click chuột
-    // để di chuyển
+    // Lấy ra DOM node của header - vùng cho phép click chuột để di chuyển
     this.header = this.root.querySelector(".header");
 
-    // Tính lại chiều cao cho vùng content,
-    // chiều rộng của content luôn = 100% giá trị của root
-    this.content.style.height = `${this.root.offsetHeight - this.header.offsetHeight}px`;
+    // update kích thước thực tế cho phần content
+    this.updateContentSize();
 
     // Đăng ký sự kiện khi người dùng click chuột vào header
     this.header.addEventListener("mousedown", this.dragMouseDown);
@@ -116,6 +132,9 @@ export default class DraggableNote extends React.Component {
     const newRight = newLeft + this.root.offsetWidth;
     const newBottom = newTop + this.root.offsetHeight;
 
+    let left = this.root.style.left;
+    let top = this.root.style.top;
+
     // Kiểm tra thử xem ứng với vị trí mới này,
     // component có nằm trong chiều rộng màn hình không, 
     // Nếu có, thì mới cập nhật vị trí mới
@@ -123,7 +142,7 @@ export default class DraggableNote extends React.Component {
       newRight >= 0 && newRight <= maxWidth) {
 
       this.startX = e.clientX;
-      this.root.style.left = `${newLeft}px`;
+      left = newLeft;
     }
 
     // Kiểm tra thử xem ứng với vị trí mới này,
@@ -133,8 +152,17 @@ export default class DraggableNote extends React.Component {
       newBottom >= 0 && newBottom <= maxHeight) {
 
       this.startY = e.clientY;
-      this.root.style.top = `${newTop}px`;
+      top = newTop;
     }
+
+    // Cập nhật lại vị trí left, top cho Component
+    this.root.style.left = `${left}px`;
+    this.root.style.top = `${top}px`;
+
+    // Nếu người dùng truyền vào hàm handleDataChange,
+    // thì mình sẽ gọi để update state ở thằng cha nó
+    if (this.props.handleDataChange)
+      this.props.handleDataChange(this.props.id, { left, top });
   }
 
   /**
@@ -159,9 +187,16 @@ export default class DraggableNote extends React.Component {
    * nhưng khi đăng ký sự kiện là mouseup.
    */
   contentResize() {
-    this.header.style.width = `${this.content.offsetWidth}px`;
-    this.root.style.width = `${this.content.offsetWidth}px`;
-    this.root.style.height = `${this.content.offsetHeight + this.header.offsetHeight}px`;
+    const width = this.content.offsetWidth;
+    const height = this.content.offsetHeight + this.header.offsetHeight;
+
+    this.root.style.width = `${width}px`;
+    this.root.style.height = `${height}px`;
+
+    // Nếu người dùng truyền vào hàm handleDataChange,
+    // thì mình sẽ gọi để update state ở thằng cha nó
+    if (this.props.handleDataChange)
+      this.props.handleDataChange(this.props.id, { width, height });
   }
 
   /**
@@ -172,22 +207,49 @@ export default class DraggableNote extends React.Component {
     window.removeEventListener("mousemove", this.contentResize);
   }
 
+  /**
+   * Xử lý khi nội dung note thay đổi
+   */
+  contentChange(event) {
+    // Nếu người dùng truyền vào hàm handleDataChange,
+    // thì mình sẽ gọi để update state ở thằng cha nó
+    if (this.props.handleDataChange)
+      this.props.handleDataChange(this.props.id, {
+        content: event.target.value
+      });
+  }
+
   render() {
     const title = this.props.title || "Click here to move";
     const elemStyle = {
-      width: this.props.width || "300px",
-      height: this.props.height || "300px",
-      top: this.props.top || "0px",
-      left: this.props.left || "0px"
+      width: `${this.props.width || 300}px`,
+      height: `${this.props.height || 300}px`,
+      top: `${this.props.top || 0}px`,
+      left: `${this.props.left || 0}px`
     }
+
+    // Set giá trị z-index cho Component nếu người dùng truyền,
+    // ngược lại thì để giá trị mặc định mà trình duyệt cấp
+    // khi khởi tạo
+    if (this.props.zIndex !== undefined) elemStyle.zIndex = this.props.zIndex;
 
     return (
       <div className="lp-draggable-note" style={elemStyle}>
         <div className="header">{title}</div>
-        <textarea
-          className="content"
-          defaultValue={this.props.content}
-        />
+        {
+          this.props.handleDataChange ?
+            <textarea
+              className="content"
+              value={this.props.content}
+              spellCheck="false"
+              onChange={this.contentChange}
+            /> :
+            <textarea
+              className="content"
+              defaultValue={this.props.content}
+              spellCheck="false"
+            />
+        }
       </div>
     )
   }

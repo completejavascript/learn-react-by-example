@@ -166,12 +166,12 @@ export default class DraggableElement extends React.Component {
   render() {
     const title = this.props.title || "Click here to move";
     const elemStyle = {
-      width: this.props.width || "300px",
-      height: this.props.height || "300px",
-      top: this.props.top || "0px",
-      left: this.props.left || "0px"
+      width: `${this.props.width || 300}px`,
+      height: `${this.props.height || 300}px`,
+      top: `${this.props.top || 0}px`,
+      left: `${this.props.left || 0}px`
     }
-    
+
     return (
       <div className="lp-draggable-element" style={elemStyle}>
         <div className="header">{title}</div>

@@ -56,8 +56,6 @@ export default class CollapsibleContent extends React.Component {
     
     this.updateContentMaxHeight();
     window.addEventListener("resize", this.updateContentMaxHeight);
-
-    console.log(this.props.children);
   }
 
   /**

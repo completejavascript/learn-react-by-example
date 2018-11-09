@@ -1,0 +1,37 @@
+.lp-scroll-to-top,
+.lp-scroll-to-top * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.lp-scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 15px 15px 15px;
+  border-radius: 4px;
+  font-size: 1.8rem;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+  -webkit-transition: opacity 0.6s ease;
+  -moz-transition: opacity 0.6s ease;
+  -o-transition: opacity 0.6s ease;
+}
+
+.lp-scroll-to-top:hover {
+  opacity: 1;
+}
+
+.lp-scroll-to-top.left {
+  left: 30px;
+}
+
+.lp-scroll-to-top.right {
+  right: 30px;
+}

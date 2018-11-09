@@ -33,8 +33,6 @@
 .lp-draggable-note>.content {
   padding: 15px;
   background-color: #fdfccf;
-  width: 100%;
-  height: 100%;
   border: none;
   font: normal normal normal 0.9rem/1.6 Nunito Sans, Helvetica, Arial, sans-serif;
 }

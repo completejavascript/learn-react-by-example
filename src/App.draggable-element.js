@@ -35,12 +35,12 @@ export default class App extends React.Component {
           Visit me at <a href="https://completejavascript.com/">completejavascript.com</a>.
         </div>
 
-        <DraggableElement 
+        <DraggableElement
           title={`Click here to move`}
-          width={`400px`}
-          height={`250px`}
-          top={`50px`}
-          left={`200px`}
+          width={`400`}
+          height={`250`}
+          top={`150`}
+          left={`200`}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -50,10 +50,10 @@ export default class App extends React.Component {
 
         <DraggableElement
           title={`Click here to move`}
-          width={`400px`}
-          height={`450px`}
-          top={`350px`}
-          left={`300px`}
+          width={`400`}
+          height={`450`}
+          top={`350`}
+          left={`300`}
         >
           <h3>Slideshow</h3>
           <Slideshow
@@ -65,10 +65,10 @@ export default class App extends React.Component {
 
         <DraggableElement
           title={`Click here to move`}
-          width={`400px`}
-          height={`400px`}
-          top={`150px`}
-          left={`800px`}
+          width={`400`}
+          height={`400`}
+          top={`150`}
+          left={`800`}
         >
           <h3>Modal Image</h3>
           <ModalImage

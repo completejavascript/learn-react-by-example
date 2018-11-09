@@ -6,11 +6,20 @@ export default class TabGallery extends React.Component {
   constructor(props) {
     super(props);
 
+    /**
+     * State lưu thông tin ảnh sẽ được hiển thị trong tab content,
+     * bao gồm đường dẫn ảnh và caption của ảnh
+     */
     this.state = {
       imageSrc: "",
       imageText: "",
     }
 
+    /*
+    * Khi sử dụng, mình sẽ truyền thuộc tính ratio, giả sử là "3:2"
+    * Như vậy, tỉ lệ width/height là this.ratioWH = 3 / 2
+    * Mình sẽ điều chỉnh các ảnh sao cho về cùng 1 kích thước. 
+    */
     const ratioWHArray = this.props.ratio.split(":");
     this.ratioWH = ratioWHArray[0] / ratioWHArray[1];
 
@@ -19,6 +28,10 @@ export default class TabGallery extends React.Component {
     this.hideImage = this.hideImage.bind(this);
   }
 
+  /**
+   * Điều khiển việc hiển thị ảnh, với đầu vào là object lưu thông tin
+   * của ảnh cần hiển thị
+   */
   showImage(image) {
     this.setState({
       imageSrc: image.src,
@@ -26,21 +39,40 @@ export default class TabGallery extends React.Component {
     });
   }
 
+  /**
+   * Điều khiển việc ẩn ảnh đi, 
+   * bằng cách cho đường dẫn ảnh về string rỗng.
+   */
   hideImage() {
     this.setState({
       imageSrc: "",
       imageText: "",
     });
 
+    /**
+     * Khi set display thành none thì phần container 
+     * phía dưới sẽ không chiếm diện tích,
+     * nên phải cập nhật lại kích thước của component
+     */
     this.containerBottomElm.style.display = "none";
     this.updateDimensions();
   }
 
+  /**
+   * Cập nhật kích thước component
+   */
   updateDimensions() {
     this.containerElm.style.height = `${this.containerElm.offsetWidth / this.props.input.length / this.ratioWH}px`;
     this.containerBottomElm.style.height = `${this.containerBottomElm.offsetWidth / this.ratioWH}px`;
   }
 
+  /**
+   * Hàm này được gọi khi component đã render lên HTML xong,
+   * lúc này mình cần lưu lại DOM node ứng với các phần tử cần thiết.
+   * 
+   * Đồng thời tính toán kích thước component và đăng ký
+   * sự kiện khi resize màn hình thì sẽ tính toán lại kích thước của component.
+   */
   componentDidMount() {
     this.rootElm = ReactDOM.findDOMNode(this);
     this.containerElm = this.rootElm.querySelector(".container");
@@ -50,10 +82,19 @@ export default class TabGallery extends React.Component {
     window.addEventListener("resize", this.updateDimensions);
   }
 
+  /**
+   * Hàm này được gọi khi component bị xoá khỏi HTML,
+   * lúc này mình cần huỷ bỏ sự kiện đã đăng ký.
+   */
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
+  /**
+   * Hàm này được gọi khi component update,
+   * tức là khi click vào mỗi ảnh, mình sẽ hiển thị ảnh phía dưới,
+   * sau đó tính toán lại kích thước phù hợp.
+   */
   componentDidUpdate() {
     if (this.state.imageSrc !== "") {
       this.containerBottomElm.style.display = "block";
@@ -61,6 +102,13 @@ export default class TabGallery extends React.Component {
     }
   }
 
+  /**
+   * Giao diện của tab gallery sẽ gồm 2 phần chính.
+   * Phần div với tên class container sẽ hiển thị ảnh theo chiều ngang.
+   * 
+   * Khi click vào mỗi ảnh thì phiên bản lớn hơn của ảnh sẽ hiển thị
+   * phía dưới, ứng với thẻ div với class container-bottom
+   */
   render() {
     return (
       <div className="lp-tab-gallery">
