@@ -20,16 +20,16 @@
 
   position: relative;
   display: inline-block;
-  border-bottom: var(--border-bottom-style, --border-bottom-style-default);
+  border-bottom: var(--border-bottom-style);
 }
 
 /* Tooltip Common */
 
 .lp-tooltip>.tooltip>.tooltip-text {
   visibility: hidden;
-  width: var(--tooltip-width, --tooltip-width-default);
-  background-color: var(--tooltip-background-color, --tooltip-background-color-default);
-  color: var(--tooltip-color, --tooltip-color-default);
+  width: var(--tooltip-width);
+  background-color: var(--tooltip-background-color);
+  color: var(--tooltip-color);
   text-align: center;
   padding: 5px;
   border-radius: 6px;
@@ -59,14 +59,14 @@
 .lp-tooltip>.tooltip>.tooltip-text.top {
   bottom: 100%;
   left: 50%;
-  margin-left: calc(-1 * var(--tooltip-width, --tooltip-width-default) / 2);
+  margin-left: calc(-0.5 * var(--tooltip-width));
 }
 
 .lp-tooltip>.tooltip>.tooltip-text.top::after {
   top: 100%;
   left: 50%;
   margin-left: -5px;
-  border-color: var(--tooltip-background-color, --tooltip-background-color-default) transparent transparent transparent;
+  border-color: var(--tooltip-background-color) transparent transparent transparent;
 }
 
 /* Tooltip on right */
@@ -82,7 +82,7 @@
   right: 100%;
   top: 50%;
   margin-top: -5px;
-  border-color: transparent var(--tooltip-background-color, --tooltip-background-color-default)  transparent transparent;
+  border-color: transparent var(--tooltip-background-color)  transparent transparent;
 }
 
 /* Tooltip on bottom */
@@ -90,14 +90,14 @@
 .lp-tooltip>.tooltip>.tooltip-text.bottom {
   top: 100%;
   left: 50%;
-  margin-left: calc(-1 * var(--tooltip-width, --tooltip-width-default) / 2);
+  margin-left: calc(-0.5 * var(--tooltip-width));
 }
 
 .lp-tooltip>.tooltip>.tooltip-text.bottom::after {
   bottom: 100%;
   left: 50%;
   margin-left: -5px;
-  border-color: transparent transparent var(--tooltip-background-color, --tooltip-background-color-default) transparent;
+  border-color: transparent transparent var(--tooltip-background-color) transparent;
 }
 /* Tooltip on left */
 
@@ -112,5 +112,5 @@
   left: 100%;
   top: 50%;
   margin-top: -5px;
-  border-color: transparent transparent transparent var(--tooltip-background-color, --tooltip-background-color-default);
+  border-color: transparent transparent transparent var(--tooltip-background-color);
 }
