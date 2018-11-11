@@ -62,8 +62,11 @@ export default class TabGallery extends React.Component {
    * Cập nhật kích thước component
    */
   updateDimensions() {
-    this.containerElm.style.height = `${this.containerElm.offsetWidth / this.props.input.length / this.ratioWH}px`;
-    this.containerBottomElm.style.height = `${this.containerBottomElm.offsetWidth / this.ratioWH}px`;
+    const tabHeight = this.containerElm.offsetWidth / this.props.input.length / this.ratioWH;
+    this.containerElm.style.height = `${tabHeight}px`;
+
+    const bottomHeight = this.containerBottomElm.offsetWidth / this.ratioWH;
+    this.containerBottomElm.style.height = `${bottomHeight}px`;
   }
 
   /**
@@ -119,7 +122,10 @@ export default class TabGallery extends React.Component {
                 <div
                   key={index}
                   className="image-wrapper"
-                  style={{ width: `${1 / this.props.input.length * 100}%`, height: `100%` }}
+                  style={{ 
+                    width: `${1 / this.props.input.length * 100}%`, 
+                    height: `100%` 
+                  }}
                 >
                   <img
                     className="image"

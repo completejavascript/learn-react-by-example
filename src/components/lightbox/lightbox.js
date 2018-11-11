@@ -54,11 +54,12 @@ export default class LightBox extends React.Component {
   * Nhưng chiều cao là giá trị tuyệt đối nên phải tính lại, 
   * dựa vào width và tỉ lệ this.ratioWH = width / height
   * 
-  * Ngoài ra, số lượng ảnh ban đầu là this.props.input.length chứ không phải 1 ảnh
-  * nên mình phải chia cho this.props.input.length 
+  * Ngoài ra, số lượng ảnh ban đầu là this.props.input.length 
+  * chứ không phải 1 ảnh nên mình phải chia cho this.props.input.length 
   */
   updateDimensions() {
-    this.containerElm.style.height = `${this.containerElm.offsetWidth / this.props.input.length / this.ratioWH}px`;
+    const height = this.containerElm.offsetWidth / this.props.input.length / this.ratioWH;
+    this.containerElm.style.height = `${height}px`;
   }
 
   /** 
@@ -108,7 +109,10 @@ export default class LightBox extends React.Component {
                 <div 
                   key={index}
                   className="image-wrapper" 
-                  style={{ width: `${1 / this.props.input.length * 100}%`, height: `100%` }}
+                  style={{ 
+                    width: `${1 / this.props.input.length * 100}%`, 
+                    height: `100%` 
+                  }}
                 >
                   <img
                     className="image"
