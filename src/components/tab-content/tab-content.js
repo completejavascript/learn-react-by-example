@@ -38,7 +38,7 @@ export default class TabContent extends React.Component {
    *    => và gán opacity = 1 để hiển thị nó
    *  + Ngược lại, khi nó không được active
    *    => gán maxHeight cho nó bằng 0. 
-   *    => mà trong file css mình đã set overflow = hidden nên nó sẽ không hiển thị
+   *    => mà trong file css mình đã set overflow = hidden nên nó sẽ bị ẩn
    *    => tuy nhiên nó vẫn có padding và border
    *    => nên cần set opacity = 0 để ẩn nốt border đi
    */
@@ -60,7 +60,8 @@ export default class TabContent extends React.Component {
   /**
   * Hàm này được gọi khi TabContent được render xong.
   * Khi đó mình sẽ cập nhật TabContent - updateTabContent lần đầu tiên.
-  * Sau đó, đăng ký sự kiện khi thay đổi kích thước màn hình sẽ cập nhật lại TabContent,
+  * Sau đó, đăng ký sự kiện khi thay đổi kích thước màn hình,
+  * sẽ cập nhật lại TabContent,
   * (thực chất là mình chỉ cập nhật lại maxHeight)
   */
   componentDidMount() {
@@ -78,7 +79,8 @@ export default class TabContent extends React.Component {
 
   /**
    * Hàm này được gọi mỗi khi this.state.tabIndex thay đổi.
-   * Tức là mình cần phải cập nhật lại nội dung của Tab content ứng với từng tab
+   * Tức là mình cần phải cập nhật lại nội dung của Tab content 
+   * ứng với từng tab
    */
   componentDidUpdate() {
     this.updateTabContent();
