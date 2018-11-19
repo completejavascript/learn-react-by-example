@@ -73,11 +73,10 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h2>Tab Content</h2>
-        <p>Click on each section to change the tab's content</p>
+        <p>Click on each section to change the tab content</p>
 
         <TabContent input={contents} />
 
-        
         <div>
           <p>
             Made by <a href="https://about.phamvanlam.com/">Lam Pham</a>.
