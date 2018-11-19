@@ -1,7 +1,7 @@
 {
   "main.css": "/learn-react-by-example/static/css/main.25cbe457.chunk.css",
-  "main.js": "/learn-react-by-example/static/js/main.2b599063.chunk.js",
-  "main.js.map": "/learn-react-by-example/static/js/main.2b599063.chunk.js.map",
+  "main.js": "/learn-react-by-example/static/js/main.0b6a9aed.chunk.js",
+  "main.js.map": "/learn-react-by-example/static/js/main.0b6a9aed.chunk.js.map",
   "static/js/1.23f6448e.chunk.js": "/learn-react-by-example/static/js/1.23f6448e.chunk.js",
   "static/js/1.23f6448e.chunk.js.map": "/learn-react-by-example/static/js/1.23f6448e.chunk.js.map",
   "runtime~main.js": "/learn-react-by-example/static/js/runtime~main.cd74fda8.js",
@@ -20,6 +20,6 @@
   "static/media/01.jpg": "/learn-react-by-example/static/media/01.4dedc228.jpg",
   "static/css/main.25cbe457.chunk.css.map": "/learn-react-by-example/static/css/main.25cbe457.chunk.css.map",
   "index.html": "/learn-react-by-example/index.html",
-  "precache-manifest.81a20e121ce6d2d25eeeabe75b8caabe.js": "/learn-react-by-example/precache-manifest.81a20e121ce6d2d25eeeabe75b8caabe.js",
+  "precache-manifest.0c537e04d8a858dfae71d6aeba1bacf9.js": "/learn-react-by-example/precache-manifest.0c537e04d8a858dfae71d6aeba1bacf9.js",
   "service-worker.js": "/learn-react-by-example/service-worker.js"
 }
