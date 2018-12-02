@@ -77,8 +77,10 @@ export default class StickyNotes extends React.Component {
    * Xử lý event khi người dùng click vào dấu cộng (+) để thêm note
    */
   onAddNote(event) {
-    // Dừng việc lan truyền event, đảm bảo khi click vào dấu cộng (+) 
-    // để thêm note mới thì chỉ hàm này được gọi, không lan truyền đến hàm khác
+    /**
+    * Dừng việc lan truyền event, đảm bảo khi click vào dấu cộng (+) 
+    * để thêm note mới thì chỉ hàm này được gọi, không lan truyền đến hàm khác
+    */ 
     event.stopPropagation();
 
     // Lấy vị trí của note hiện tại, từ đó tính toán vị trí của note mới
